@@ -1,4 +1,4 @@
-# MERN Ecommerce
+# MERN Ecommerce - Safe Market
 
 ## Description
 
@@ -26,7 +26,7 @@ An ecommerce store built with MERN stack, and utilizes third party API's. This e
 * For more information, see code [here](server/utils/seed.js)
 
 ```
-npm run seed:db [email-***@****.com] [password-******] // This is just an example.
+npm run seed:db <email> <password> // This is just an example.
 ```
 
 ## Demo
@@ -35,15 +35,6 @@ This application is deployed on Heroku. Please check it out :smile: [here](https
 
 See admin dashboard [demo](https://mernstore-bucket.s3.us-east-2.amazonaws.com/admin.mp4)
 
-## Install
-
-Some basic Git commands are:
-
-```
-$ git clone https://github.com/mohamedsamara/mern-ecommerce.git
-$ cd project
-$ npm install
-```
 
 ## Setup
 
@@ -56,7 +47,8 @@ $ npm install
   * MAILGUN_KEY & MAILGUN_DOMAIN & MAILGUN_EMAIL_SENDER => Mailgun configuration
   * GOOGLE_CLIENT_ID & GOOGLE_CLIENT_SECRET & GOOGLE_CALLBACK_URL => Google Auth configuration
   * FACEBOOK_CLIENT_ID & FACEBOOK_CLIENT_SECRET & FACEBOOK_CALLBACK_URL => Facebook Auth configuration
-  * AWS_ACCESS_KEY_ID & AWS_SECRET_ACCESS_KEY & AWS_REGION & AWS_BUCKET_NAME => AWS configuration
+  * FIREBASE_API_KEY & FIREBASE_AUTH_DOMAIN & FIREBASE_PROJECT_ID & FIREBASE_STORAGE_BUCKET &
+    FIREBASE_MESSAGE_SENDER_ID & FIREBASE_APP_ID => Firebase App configuration
 ```
 
 ## Heroku Deployment
