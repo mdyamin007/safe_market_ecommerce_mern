@@ -1,31 +1,20 @@
-const AWS = require('aws-sdk');
+const firebase = require("../config/firebase");
 
-const keys = require('../config/keys');
+require("firebase/storage");
 
-exports.s3Upload = async image => {
-  let imageUrl = '';
-  let imageKey = '';
+const storage = firebase.storage().ref();
 
-  if (image) {
-    const s3bucket = new AWS.S3({
-      accessKeyId: keys.aws.accessKeyId,
-      secretAccessKey: keys.aws.secretAccessKey,
-      region: keys.aws.region
-    });
+global.XMLHttpRequest = require("xhr2");
 
-    const params = {
-      Bucket: keys.aws.bucketName,
-      Key: image.originalname,
-      Body: image.buffer,
-      ContentType: image.mimetype,
-      ACL: 'public-read'
-    };
+exports.uploadImage = async (image) => {
+  const timestamp = Date.now();
+  const name = image.originalname.split(".")[0];
+  const type = image.originalname.split(".")[1];
+  const imageKey = `${name}_${timestamp}.${type}`;
 
-    const s3Upload = await s3bucket.upload(params).promise();
-
-    imageUrl = s3Upload.Location;
-    imageKey = s3Upload.key;
-  }
+  const imageRef = storage.child(imageKey);
+  const snapshot = await imageRef.put(image.buffer);
+  const imageUrl = await snapshot.ref.getDownloadURL();
 
   return { imageUrl, imageKey };
 };
