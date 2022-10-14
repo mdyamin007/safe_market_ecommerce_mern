@@ -145,16 +145,16 @@ class Navigation extends React.PureComponent {
                 <span>Free Shipping</span>
               </Col>
               <Col md="4" className="text-center d-none d-md-block">
-                <i className="fa fa-credit-card" />
-                <span>Payment Methods</span>
+                <i className="fa fa-rocket" />
+                <span>Fast Delivery</span>
               </Col>
               <Col md="4" className="text-center d-none d-md-block">
                 <i className="fa fa-phone" />
-                <span>Call us 951-999-9999</span>
+                <span>Call us +880-1915-395544</span>
               </Col>
               <Col xs="12" className="text-center d-block d-md-none">
                 <i className="fa fa-phone" />
-                <span> Need advice? Call us 951-999-9999</span>
+                <span> Need advice? Call us +880-1915-395544</span>
               </Col>
             </Row>
           </Container>
@@ -268,7 +268,7 @@ class Navigation extends React.PureComponent {
                   {authenticated ? (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
-                        {user.firstName ? user.firstName : "Welcome"}
+                        {user.firstName ? user.firstName : "Account"}
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
                       <DropdownMenu right>
@@ -283,7 +283,7 @@ class Navigation extends React.PureComponent {
                   ) : (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
-                        Welcome!
+                        My Account
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
                       <DropdownMenu right>
