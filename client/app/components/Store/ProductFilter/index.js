@@ -4,65 +4,65 @@
  *
  */
 
-import React from 'react';
-import { Card, CardBody, CardHeader } from 'reactstrap';
+import React from "react";
+import { Card, CardBody, CardHeader } from "reactstrap";
 
-import RangeSlider from '../../Common/RangeSlider';
+import RangeSlider from "../../Common/RangeSlider";
 
 const priceMarks = {
-  1: { label: <p className='fw-normal text-black'>$1</p> },
-  5000: { label: <p className='fw-normal text-black'>$5000</p> }
+  1: { label: <p className="fw-normal text-black">Tk 1</p> },
+  50000: { label: <p className="fw-normal text-black">50000</p> },
 };
 
 const rateMarks = {
   0: {
     label: (
       <span>
-        <span className='mr-1'>5</span>
+        <span className="mr-1">5</span>
         <i
-          className='fa fa-star fa-1x'
-          style={{ display: 'contents' }}
-          aria-hidden='true'
+          className="fa fa-star fa-1x"
+          style={{ display: "contents" }}
+          aria-hidden="true"
         ></i>
       </span>
-    )
+    ),
   },
   20: {
     label: (
       <span>
-        <span className='mr-1'>4</span>
-        <i className='fa fa-star fa-1x' aria-hidden='true'></i>
+        <span className="mr-1">4</span>
+        <i className="fa fa-star fa-1x" aria-hidden="true"></i>
       </span>
-    )
+    ),
   },
   40: {
     label: (
       <span>
-        <span className='mr-1'>3</span>
-        <i className='fa fa-star fa-1x' aria-hidden='true'></i>
+        <span className="mr-1">3</span>
+        <i className="fa fa-star fa-1x" aria-hidden="true"></i>
       </span>
-    )
+    ),
   },
   60: {
     label: (
       <span>
-        <span className='mr-1'>2</span>
-        <i className='fa fa-star fa-1x' aria-hidden='true'></i>
+        <span className="mr-1">2</span>
+        <i className="fa fa-star fa-1x" aria-hidden="true"></i>
       </span>
-    )
+    ),
   },
   80: {
     label: (
       <span>
-        <span className='mr-1'>1</span>
-        <i className='fa fa-star fa-1x' aria-hidden='true'></i>
+        <span className="mr-1">1</span>
+        <i className="fa fa-star fa-1x" aria-hidden="true"></i>
       </span>
-    )
+    ),
   },
-  100: { label: <span>Any</span> }
+  100: { label: <span>Any</span> },
 };
 
-const rating = v => {
+const rating = (v) => {
   switch (v) {
     case 100:
       return 0;
@@ -80,37 +80,37 @@ const rating = v => {
   }
 };
 
-const ProductFilter = props => {
+const ProductFilter = (props) => {
   const { filterProducts } = props;
 
   return (
-    <div className='product-filter'>
-      <Card className='mb-4'>
-        <CardHeader tag='h3'>Price</CardHeader>
+    <div className="product-filter">
+      <Card className="mb-4">
+        <CardHeader tag="h3">Price</CardHeader>
         <CardBody>
-          <div className='mx-2 mb-3'>
+          <div className="mx-2 mb-3">
             <RangeSlider
               marks={priceMarks}
-              defaultValue={[1, 2500]}
-              max={5000}
-              onChange={v => {
-                filterProducts('price', v);
+              defaultValue={[1, 50000]}
+              max={50000}
+              onChange={(v) => {
+                filterProducts("price", v);
               }}
             />
           </div>
         </CardBody>
       </Card>
       <Card>
-        <CardHeader tag='h3'>Rating</CardHeader>
+        <CardHeader tag="h3">Rating</CardHeader>
         <CardBody>
-          <div className='mx-2 mb-4'>
+          <div className="mx-2 mb-4">
             <RangeSlider
-              type='slider'
+              type="slider"
               marks={rateMarks}
               step={20}
               defaultValue={[100]}
-              onChange={v => {
-                filterProducts('rating', rating(v));
+              onChange={(v) => {
+                filterProducts("rating", rating(v));
               }}
             />
           </div>
