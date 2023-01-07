@@ -182,7 +182,7 @@ class Navigation extends React.PureComponent {
                 <Link to="/">
                   <div className="d-inline-flex justify-content-center align-items-center mx-4">
                     <img
-                      src="images/pwa.png"
+                      src="/images/pwa.png"
                       alt="logo"
                       style={{ width: "2.5rem", height: "2.5rem" }}
                     />

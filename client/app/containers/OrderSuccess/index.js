@@ -4,15 +4,15 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import actions from '../../actions';
+import actions from "../../actions";
 
-import NotFound from '../../components/Common/NotFound';
-import LoadingIndicator from '../../components/Common/LoadingIndicator';
+import NotFound from "../../components/Common/NotFound";
+import LoadingIndicator from "../../components/Common/LoadingIndicator";
 
 class OrderSuccess extends React.PureComponent {
   componentDidMount() {
@@ -31,48 +31,60 @@ class OrderSuccess extends React.PureComponent {
     const { order, isLoading } = this.props;
 
     return (
-      <div className='order-success'>
+      <div className="order-success">
         {isLoading ? (
           <LoadingIndicator />
         ) : order._id ? (
-          <div className='order-message'>
+          <div className="order-message">
             <h2>Thank you for your order.</h2>
             <p>
-              Order{' '}
+              Order{" "}
               <Link
                 to={{
                   pathname: `/order/${order._id}?success`,
-                  state: { prevPath: location.pathname }
+                  state: { prevPath: location.pathname },
                 }}
                 // to={`/order/${order._id}?success`}
-                className='order-label'
+                className="order-label"
               >
                 #{order._id}
-              </Link>{' '}
+              </Link>{" "}
               is complete.
             </p>
             <p>A confirmation email will be sent to you shortly.</p>
-            <div className='order-success-actions'>
-              <Link to='/dashboard/orders' className='btn-link'>
+            <div className="order-success-actions">
+              <Link to="/dashboard/orders" className="btn-link">
                 Manage Orders
               </Link>
-              <Link to='/shop' className='btn-link shopping-btn'>
+              <Link to="/shop" className="btn-link shopping-btn">
                 Continue Shopping
               </Link>
             </div>
+            <img
+              src="/images/payment.png"
+              alt="Payment Method"
+              className="my-5"
+              style={{ width: "30rem" }}
+            />
+            <br />
+            <img
+              src="/images/bkash-payment.jpg"
+              alt="Payment Method"
+              className="mb-5"
+            />
           </div>
         ) : (
-          <NotFound message='No order found.' />
+          <NotFound message="No order found." />
         )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     order: state.order.order,
-    isLoading: state.order.isLoading
+    isLoading: state.order.isLoading,
   };
 };
 
