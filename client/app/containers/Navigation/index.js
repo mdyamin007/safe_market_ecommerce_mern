@@ -150,11 +150,21 @@ class Navigation extends React.PureComponent {
               </Col>
               <Col md="4" className="text-center d-none d-md-block">
                 <i className="fa fa-phone" />
-                <span>Call us +880-1915-395544</span>
+                <span>
+                  Call us&nbsp;
+                  <a href="tel:+8801688811391" className="text-white">
+                    +880-1688-811391
+                  </a>
+                </span>
               </Col>
               <Col xs="12" className="text-center d-block d-md-none">
                 <i className="fa fa-phone" />
-                <span> Need advice? Call us +880-1915-395544</span>
+                <span>
+                  Need advice? Call us{" "}
+                  <a href="tel:+8801688811391" className="text-white">
+                    <u>+880-1688-811391</u>
+                  </a>
+                </span>
               </Col>
             </Row>
           </Container>
